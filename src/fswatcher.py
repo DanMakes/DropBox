@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 import os
 import time
@@ -41,7 +41,7 @@ class FSWatcher:
         if not self._syncFolder:
             # If no sync folder is specified, set it to the default
             homeDir = os.getenv("HOME")
-            syncFolder = os.path.join(homeDir, 'RoshanDrop')
+            syncFolder = os.path.join(homeDir, 'DanDrop')
             self._config.set_option('syncFolder', syncFolder, 'general')
             self._config.write()
             self._syncFolder = syncFolder

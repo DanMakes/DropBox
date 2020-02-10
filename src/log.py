@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 import logging
 import logging.handlers
@@ -7,12 +7,12 @@ import copy
 
 logger = None
 
-LOG_FILE='roshandrop.log'
+LOG_FILE='Dandrop.log'
 
 
 class _Logger:
     """
-    The RoshanDrop logger, which basically implements the functions from the
+    The DanDrop logger, which basically implements the functions from the
     logging module
     """
     def __init__(self, log_file=LOG_FILE):
@@ -20,7 +20,7 @@ class _Logger:
         default_format = common + '%(message)s'
         datefmt = '%d/%m/%Y %H:%M:%S'
 
-        self._log = logging.getLogger('RoshanDrop')
+        self._log = logging.getLogger('DanDrop')
 
         logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)s %(message)s',

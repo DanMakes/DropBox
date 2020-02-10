@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 # Core modules
 import atexit

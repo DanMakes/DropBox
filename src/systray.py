@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 # This is only needed for Python v2 but is harmless for Python v3.
 import sip
@@ -172,7 +172,7 @@ class SystrayUi(QtGui.QDialog):
         self.sendApiCommand("stop")
 
     def openPythonDropFolder(self):
-        subprocess.Popen("explorer " + self._config["roshandrop_folder"])
+        subprocess.Popen("explorer " + self._config["Dandrop_folder"])
 
     def showPreferencesDialog(self):
         self.showNormal()
@@ -185,7 +185,7 @@ class SystrayUi(QtGui.QDialog):
         self.hide()
 
     def changeReposPathClicked(self):
-        oldDir = self._config["roshandrop_folder"]
+        oldDir = self._config["Dandrop_folder"]
         dir = QtGui.QFileDialog.getExistingDirectory(self,
                                                      "Select Folder for Repository",
                                                      oldDir, QtGui.QFileDialog.ShowDirsOnly)
@@ -208,7 +208,7 @@ class SystrayUi(QtGui.QDialog):
 
     def showAbout(self):
         msgBox = QtGui.QMessageBox()
-        msgBox.setText("This Software was created by Roshan Lamichhane. ;)")
+        msgBox.setText("This Software was created by Dan Makes. ;)")
         msgBox.exec_()
 
     def readSettings(self):

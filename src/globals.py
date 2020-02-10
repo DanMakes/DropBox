@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 import os
 
@@ -7,9 +7,9 @@ globals = None
 
 class _Globals:
     def __init__(self):
-        self.appName = 'RoshanDrop'
+        self.appName = 'DanDrop'
         self.version = '0.0.1'
-        self.roshandrop = None
+        self.Dandrop = None
         self.baseDir = None
         self.confDir = os.path.join(os.path.expanduser('~'), '.' + self.appName)
         self.cfgFile = os.path.join(self.confDir, 'config.ini')

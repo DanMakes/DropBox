@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 import os
 from configobj import ConfigObj
 #import xdg.BaseDirectory
@@ -254,4 +254,4 @@ class clParser:
     def addOptions(self):
         self.parser.add_option("-D", dest="debugmode",
                 action="store_true", default=False,
-                help="Starts RoshanDrop in debug mode")
+                help="Starts DanDrop in debug mode")

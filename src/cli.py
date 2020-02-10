@@ -1,18 +1,18 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 import sys
 from app_manager import AppManager
 import globals
 
-roshandrop_app = None
+Dandrop_app = None
 
 class Cli():
     def __init__(self, args, options):
         self._args = args
         self._options = options
 
-        self._usage = "usage: roshandrop start|stop|restart|create|status|config|factoryreset|help"
+        self._usage = "usage: Dandrop start|stop|restart|create|status|config|factoryreset|help"
 
         self._app = AppManager(self.pid_file(), debug=self._options.debugmode)
         self._config = self._app._config
@@ -50,22 +50,22 @@ class Cli():
             sys.exit(2)
 
     def start(self):
-        print "Starting RoshanDrop..."
+        print "Starting DanDrop..."
         if self.stopped() and not self._options.debugmode:
             self._app.start()
         elif self.stopped() and self._options.debugmode:
             # Start in debug mode
             self._app.run()
         else:
-            print "RoshanDrop is already running, please use restart"
+            print "DanDrop is already running, please use restart"
 
     def stop(self):
-        print "Stopping RoshanDrop..."
+        print "Stopping DanDrop..."
         if self.running:
             self._app.stop()
-            print "RoshanDrop stopped"
+            print "DanDrop stopped"
         else:
-            print "RoshanDrop is not running"
+            print "DanDrop is not running"
 
     def restart(self):
         self.stop()
@@ -79,11 +79,11 @@ class Cli():
         # Add new repository
         self._config.add_share(self._args[1], self._args[2], self._args[3], self._args[4])
 
-        # Restart RoshanDrop
+        # Restart DanDrop
         if self.running(): self.restart()
 
     def status(self):
-        print "RoshanDrop v" + self._globs.version
+        print "DanDrop v" + self._globs.version
         print "Running: True" if self.running() else "Running: False"
         print "Shares:"
         print "\n".join("  - " + share.sync_folder for share in self._config.get_shares())
@@ -112,16 +112,16 @@ class Cli():
         return self._app.stopped()
 
     def pid_file(self):
-        return "/tmp/roshandrop.pid"
+        return "/tmp/Dandrop.pid"
 
     def print_help_message(self):
         print self._usage
-        print "Type roshandrop -h or roshandrop --help to get more information about all options"
+        print "Type Dandrop -h or Dandrop --help to get more information about all options"
         print
         print "Commands:"
-        print "  start          Start RoshanDrop"
-        print "  stop           Stop RoshanDrop"
-        print "  restart        Restart RoshanDrop"
+        print "  start          Start DanDrop"
+        print "  stop           Stop DanDrop"
+        print "  restart        Restart DanDrop"
         print "  create         Create and add a new share."
         print "                 Usage: create sync_directory remote_host remote_directory remote_user"
         print "  rm             Removes the specified share"

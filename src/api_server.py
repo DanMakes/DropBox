@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 import sys
 import threading
 import SocketServer
@@ -7,7 +7,7 @@ from datetime import date
 import log
 import globals
 
-RoshanDrop = None
+DanDrop = None
 
 class ApiRequestHandler(SocketServer.StreamRequestHandler):
     """
@@ -16,7 +16,7 @@ class ApiRequestHandler(SocketServer.StreamRequestHandler):
 
     help_message = "Available commands\n\r"
     help_message += "  -> quit:\t Close connection\n\r"
-    help_message += "  -> exit:\t Exit RoshanDrop\n\r"
+    help_message += "  -> exit:\t Exit DanDrop\n\r"
     help_message += "  -> version:\t Prints the version\n\r"
     help_message += "  -> about:\t Prints a short description\n\r"
 
@@ -37,7 +37,7 @@ class ApiRequestHandler(SocketServer.StreamRequestHandler):
     def handle(self):
         client_info = "Client connected from %s\n\r" % self.client_address[0]
         #self.wfile.write(client_info)
-        welcome_message = "Welcome to RoshanDrop (%s). Type \"help\" for a list with all available commands.\n\r" % str(date.today())
+        welcome_message = "Welcome to DanDrop (%s). Type \"help\" for a list with all available commands.\n\r" % str(date.today())
         #self.wfile.write(welcome_message)
         #self.wfile.write_line_break()
 
@@ -50,11 +50,11 @@ class ApiRequestHandler(SocketServer.StreamRequestHandler):
             elif command == 'stop':
                 # Stops watching the repository
                 self.wfile.write("Stop watching...")
-                RoshanDrop.stop()
+                DanDrop.stop()
             elif command == 'start':
                 # Starts watching the repository
                 self.wfile.write("Start watching...")
-                RoshanDrop.start()
+                DanDrop.start()
             elif command == 'help':
                 # Shows all available commands and a help message
                 self.wfile.write(self.help_message)
@@ -115,9 +115,9 @@ class ApiServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     This class implements the API server.
     """
 
-    def __init__(self, roshandrop, host, port):
-        global RoshanDrop
-        RoshanDrop = roshandrop
+    def __init__(self, Dandrop, host, port):
+        global DanDrop
+        DanDrop = Dandrop
         self._logger = log.Logger()
         self.server_address = (host, port)
         SocketServer.TCPServer.__init__(self, self.server_address, ApiRequestHandler)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 from fswatcher import FSWatcher
 from api_server import ApiServer
@@ -38,7 +38,7 @@ class AppManager(Daemon):
         self._logger.set_level(self._config.logLevel)
 
     def run(self):
-        self._logger.info("Starting RoshanDrop v" + self._globals.version + "...")
+        self._logger.info("Starting DanDrop v" + self._globals.version + "...")
 
 		# Create and start the API server
         if self._config.enableApi:

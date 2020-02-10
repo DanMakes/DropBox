@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2019 Roshan Lamichhane
+# Copyright (C) 2019 Dan Makes
 
 import os
 
@@ -177,8 +177,8 @@ class Configuration:
         """
         Adds some test shares
         """
-        self.add_share("/Users/sruml/RoshanDrop", "roshanlamichhane.com",
-                "RoshanDrop/RoshanDrop.git", "roshandrop")
+        self.add_share("/Users/sruml/DanDrop", "danmakesichhane.com",
+                "DanDrop/DanDrop.git", "Dandrop")
 
-        self.add_share("/Users/sruml/RoshanDrop2", "roshanlamichhane.com",
-                "RoshanDrop/RoshanDrop.git", "roshandrop")
+        self.add_share("/Users/sruml/DanDrop2", "danmakesichhane.com",
+                "DanDrop/DanDrop.git", "Dandrop")
